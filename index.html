@@ -15,8 +15,25 @@
     <div class='container d-flex flex-column justify-content-center align-items-center mt-3'>
     <h3>타호💌그녀</h3>
     <h3 id="love">0일째</h3>
-    <h3 class="date">20201.3.1</h3>
+    <h3 class="date">2021.3.1</h3>
 </div>
+<hr>
+<section class="special-day">
+    <h3 class="title">크리스마스</h3>
+    <div class="date-box">
+        <p id="xmas" class="days-left">0일 남음</p>
+        <p id="date" class="date">2021.12.25</p>
+    </div>
+</section>
+<hr>
+<section class="special-day">
+    <h3 class="title">1000일</h3>
+    <div class="date-box">
+        <p id="thousand" class="days-left">0일 남음</p>
+        <p id="thousand-date" class="date">0000.00.00</p>
+    </div>
+</section>
+<hr>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
       var now = new Date();
@@ -28,6 +45,20 @@
       //분 -> 시 : 나누기 60
       //시 -> 일 : 나누기 24
       $('#love').text(day + '일째');
+
+      var xmas = new Date('2021-12-25');
+    var timeDiffXmas = xmas.getTime() - now.getTime();
+    var dayXmas = Math.floor(timeDiffXmas / (1000 * 60 * 60 * 24) + 1);
+    $("#xmas").text(dayXmas + '일 남음'); 
+
+    var ms = start.getTime() + 999*(1000 * 60 * 60 * 24); /* 사귄날 기준으로 999일을 더한 초 값이 들어있음 */
+    var thousand = new Date(ms);
+    var thousandDate = thousand.getFullYear() + '.' + (thousand.getMonth()+1) + '.' + thousand.getDate();
+    $("#thousand-date").text(thousandDate);
+
+    var timeDiff1000 = thousand.getTime() - now.getTime();  // ms 기준으로 계산해야 함
+    var day1000 = Math.floor(timeDiff1000 / (1000 * 60 * 60 * 24) + 1);
+    $("#thousand").text(day1000 + '일 남음'); 
     </script>
 </body>
 </html>
