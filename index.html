@@ -56,8 +56,8 @@
     var thousandDate = thousand.getFullYear() + '.' + (thousand.getMonth()+1) + '.' + thousand.getDate();
     $("#thousand-date").text(thousandDate);
 
-    var timeDiff1000 = thousand.getTime() - now.getTime();  // ms 기준으로 계산해야 함
-    var day1000 = Math.floor(timeDiff1000 / (1000 * 60 * 60 * 24) + 1);
+    var timeDiff1000 = thousand.getTime() - now.getTime();  //(사귄날+999)-지금시간 =  ms 기준 값
+    var day1000 = Math.floor(timeDiff1000 / (1000 * 60 * 60 * 24) + 1); //초를 일자로 바꿈
     $("#thousand").text(day1000 + '일 남음'); 
     </script>
 </body>
